@@ -1,18 +1,15 @@
 import { usePanelContext } from '../../context';
+import { PanelHeader } from './components/panel_header';
 
 export const PanelComponent = () => {
-  const { setIsEditingMode, isEditingMode } = usePanelContext();
+  const { isEditingMode } = usePanelContext();
   const panelStatus = isEditingMode
     ? { transform: 'translate3d(0vw, 0, 0)' }
     : { transform: 'translate3d(30vw, 0, 0)' };
 
-  const closePanel = () => {
-    setIsEditingMode(false);
-  };
   return (
     <div className="panel" style={panelStatus}>
-      <div>panel</div>
-      <button onClick={closePanel}>Close</button>
+      <PanelHeader />
     </div>
   );
 };

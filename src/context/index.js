@@ -4,17 +4,19 @@ const PanelContext = createContext();
 
 export const PanelContextProvider = props => {
   const [isEditingMode, setIsEditingMode] = useState(false);
+  const [editedPoint, setEeditedPoint] = useState();
 
   return (
     <PanelContext.Provider
-      value={{ isEditingMode, setIsEditingMode }}
+      value={{ isEditingMode, setIsEditingMode, editedPoint, setEeditedPoint }}
       {...props}
     />
   );
 };
 
 export const usePanelContext = () => {
-  const { isEditingMode, setIsEditingMode } = useContext(PanelContext);
+  const { isEditingMode, setIsEditingMode, editedPoint, setEeditedPoint } =
+    useContext(PanelContext);
 
-  return { isEditingMode, setIsEditingMode };
+  return { isEditingMode, setIsEditingMode, editedPoint, setEeditedPoint };
 };

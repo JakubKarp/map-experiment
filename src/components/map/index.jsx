@@ -1,7 +1,7 @@
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { getData } from '../../services/getData';
 import { MAP_CONSTS } from '../../data/consts';
-import { MarkerComponent } from './components/marker';
+import { PopupComponent } from './components/popup';
 
 export const MapComponent = () => {
   const { data, load, error } = getData();
@@ -14,10 +14,11 @@ export const MapComponent = () => {
     <MapContainer center={center} zoom={zoom} scrollWheelZoom={scrollWheelZoom}>
       <TileLayer attribution={attribution} url={url} />
       {data.map(point => (
-        <MarkerComponent
-          coordinates={point.geometry.coordinates.reverse()}
-          name={point.properties.nazwa_obiektu}
-        />
+        <Marker position={point.geometry.coordinates.reverse()}>
+          <Popup>
+            <PopupComponent point={point} />
+          </Popup>
+        </Marker>
       ))}
     </MapContainer>
   );
