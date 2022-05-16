@@ -1,4 +1,5 @@
 import { usePanelContext } from '../../../../context';
+import { Button } from '../../../button';
 
 export const PopupComponent = ({ point }) => {
   const { setIsEditingMode, setEeditedPoint } = usePanelContext();
@@ -10,7 +11,7 @@ export const PopupComponent = ({ point }) => {
   return (
     <>
       <h4>{point.properties.nazwa_obiektu}</h4>
-      <button onClick={editPoint}>Edit</button>
+      <Button buttonCallback={editPoint} buttonText={'Edit'} />
     </>
   );
 };

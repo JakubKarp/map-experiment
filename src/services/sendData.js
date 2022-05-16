@@ -1,3 +1,3 @@
 export const sendData = point => {
-  console.log(' -> sendData -> point', point);
+  console.warn(' Wysłałeś punkt z nowym opisem', point);
 };

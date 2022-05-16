@@ -1,5 +1,5 @@
 import { usePanelContext } from '../../context';
-import { PanelHeader } from './components/panel_header';
+import { PanelHeader } from './components/panel_content';
 
 export const PanelComponent = () => {
   const { isEditingMode } = usePanelContext();
